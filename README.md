@@ -19,3 +19,27 @@ This helps administrators identify environments potentially exposed to software 
 1. Save the script to your Proxmox host:
    ```bash
    nano /usr/local/bin/proxmox-axios-checher.sh
+
+2. Make it executable:
+   ```bash
+   chmod +x /usr/local/bin/proxmox-axios-checher.sh
+
+## Usage
+Run the script directly from your Proxmox terminal:
+   ```bash
+   /usr/local/bin/proxmox-axios-checher.sh
+
+---
+
+### The Connection to the Axios Supply Chain Incident (March 2026)
+The event described by SOCRadar is a classic nightmare for CISOs and sysadmins. Here is a brief summary of why this script might just save your bacon:
+
+1. **What happened?** An attacker hijacked the access credentials (npm tokens) of the main maintainer of the extremely popular JavaScript library Axios (over 100 million downloads per week).
+2. **The poisoned packages:** The attacker published two manipulated versions directly to the npm registry system: axios@1.14.1 (current branch) and axios@0.30.4 (legacy branch).
+3. **The payload:** These versions contained a hidden phantom dependency called plain-crypto-js@4.2.1. When running npm install, a post-install script (node setup.js) automatically executed, loading a cross-platform Remote Access Trojan (RAT) for Windows, macOS, and Linux alike.
+4. **The problem for you:** Since Axios is the absolute foundation for countless web applications, many CI/CD pipelines or automatic updates download these versions without anyone noticing.
+
+**Where does the script come in?**
+Standard antivirus scanners on your Proxmox host cannot see what is happening deep inside an LXC or a Docker container running within it. This script reveals exactly where Axios is located and which version is in use.
+
+> ⚠️ **If you see 1.14.1 or 0.30.4 in the output:** Disconnect the container from the network immediately! The system must be considered compromised, and any passwords or API keys stored on it must be rotated.
