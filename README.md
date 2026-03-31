@@ -35,7 +35,7 @@ Run the script directly from your Proxmox terminal:
 ---
 
 ### The Connection to the Axios Supply Chain Incident (March 2026)
-The event described by SOCRadar is a classic nightmare for CISOs and sysadmins. Here is a brief summary of why this script might just save your bacon:
+The event described by [SOCRadar](https://socradar.io/blog/axios-npm-supply-chain-attack-2026-ciso-guide/) is a classic nightmare for CISOs and sysadmins. Here is a brief summary of why this script might just save your bacon:
 
 1. **What happened?** An attacker hijacked the access credentials (npm tokens) of the main maintainer of the extremely popular JavaScript library Axios (over 100 million downloads per week).
 2. **The poisoned packages:** The attacker published two manipulated versions directly to the npm registry system: axios@1.14.1 (current branch) and axios@0.30.4 (legacy branch).
