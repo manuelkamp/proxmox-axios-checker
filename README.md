@@ -18,4 +18,4 @@ This helps administrators identify environments potentially exposed to software 
 ## Installation
 1. Save the script to your Proxmox host:
    ```bash
-   nano /usr/local/bin/check-axios.sh
+   nano /usr/local/bin/proxmox-axios-checher.sh
