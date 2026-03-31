@@ -19,15 +19,18 @@ This helps administrators identify environments potentially exposed to software 
 1. Save the script to your Proxmox host:
    ```bash
    nano /usr/local/bin/proxmox-axios-checher.sh
+   ```
 
 2. Make it executable:
    ```bash
    chmod +x /usr/local/bin/proxmox-axios-checher.sh
+   ```
 
 ## Usage
 Run the script directly from your Proxmox terminal:
    ```bash
    /usr/local/bin/proxmox-axios-checher.sh
+   ```
 
 ---
 
